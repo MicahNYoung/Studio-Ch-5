@@ -50,4 +50,29 @@ public class MenuItem {
     public void setNew(boolean isNew) {
         this.isNew = isNew;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MenuItem menuItem = (MenuItem) o;
+
+        if (Double.compare(menuItem.price, price) != 0) return false;
+        if (isNew != menuItem.isNew) return false;
+        if (!description.equals(menuItem.description)) return false;
+        return category.equals(menuItem.category);
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(price);
+        result = (int) (temp ^ (temp >>> 32));
+        result = 31 * result + description.hashCode();
+        result = 31 * result + category.hashCode();
+        result = 31 * result + (isNew ? 1 : 0);
+        return result;
+    }
 }

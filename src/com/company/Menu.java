@@ -31,4 +31,26 @@ public class Menu {
     }
 
     // no setters --- as of now I don't think there is any reason to overwrite the properties
+    public void addMenuItem(MenuItem newItem){
+        menuItems.add(newItem);
+    }
+
+    public void removeMenuItem(MenuItem item) {
+        menuItems.remove(item);
+    }
+    //toString
+
+    public void printItem(MenuItem item) {
+        System.out.println(item.getDescription());
+    }
+    public void printMenu() {
+        for(MenuItem item: menuItems ){
+        System.out.println("Menu" +
+                "Description: " + item.getDescription() +
+                "Price: " + item.getPrice() +
+                "Category: " + item.getCategory() +
+                '\n');
+    }
+}
+
 }

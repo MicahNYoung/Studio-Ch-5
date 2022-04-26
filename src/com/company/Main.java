@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+
 public class Main {
 
     public static void main(String[] args) {
@@ -14,6 +15,8 @@ public class Main {
 //        System.out.println(itemOne.getCategory());
 //        System.out.println(itemOne.isNew());
         MenuItem itemTwo = new MenuItem(5.99, "taco", "Entree");
+        MenuItem itemThree = new MenuItem(5.99, "cheese", "Entree");
+        MenuItem itemFour = new MenuItem(5.99, "bread", "Entree");
 //        System.out.println(itemTwo.getDescription());
 //        System.out.println(itemTwo.getPrice());
 //        System.out.println(itemTwo.getCategory());
@@ -27,8 +30,15 @@ public class Main {
         Menu restaurantMenuTwo = new Menu(new ArrayList<MenuItem>(Arrays.asList(itemOne, itemTwo)));
         System.out.println(restaurantMenuTwo);
         System.out.println(restaurantMenuTwo.getLastUpdated());
-        System.out.println(restaurantMenuTwo.getMenuItems());
 
+        restaurantMenuTwo.addMenuItem(itemThree);
+        restaurantMenuTwo.addMenuItem(itemFour);
+        restaurantMenuTwo.addMenuItem(new MenuItem(1.00, "wings", "Appetizer" ));
+//        restaurantMenuTwo.printMenu();
+        restaurantMenuTwo.removeMenuItem(itemOne);
         // I didn't test out my setters, but feel free!
+        restaurantMenuTwo.printMenu();
+        restaurantMenuOne.printItem(itemOne);
+
     }
 }
